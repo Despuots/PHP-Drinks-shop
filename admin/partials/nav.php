@@ -1,7 +1,7 @@
 <?php
 
-    include($_SERVER['DOCUMENT_ROOT']."/drinks_shop/config/constants.php");
-    include('login_check.php');
+include($_SERVER['DOCUMENT_ROOT'] . "/drinks_shop/config/constants.php");
+include('login_check.php');
 
 ?>
 

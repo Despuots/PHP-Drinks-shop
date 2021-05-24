@@ -1,27 +1,25 @@
-<?php include('partials_front/nav.php')?>
+<?php include('partials_front/nav.php') ?>
 
 <?php
 
-    if (isset($_GET['drinks_id'])) {
-        $drinks_id = $_GET['drinks_id'];
-        $sql = "SELECT * FROM tbl_drinks WHERE id = $drinks_id";
-        $res = mysqli_query($conn, $sql);
-        $count = mysqli_num_rows($res);
+if (isset($_GET['drinks_id'])) {
+    $drinks_id = $_GET['drinks_id'];
+    $sql = "SELECT * FROM tbl_drinks WHERE id = $drinks_id";
+    $res = mysqli_query($conn, $sql);
+    $count = mysqli_num_rows($res);
 
-        if ($count == 1) {
-            $row = mysqli_fetch_assoc($res);
+    if ($count == 1) {
+        $row = mysqli_fetch_assoc($res);
 
-            $title = $row['title'];
-            $price = $row['price'];
-            $image_name = $row['image_name'];
-        }
-        else {
-            header('location'.SITE_URL);
-        }
+        $title = $row['title'];
+        $price = $row['price'];
+        $image_name = $row['image_name'];
+    } else {
+        header('location' . SITE_URL);
     }
-    else {
-        header('location:'.SITE_URL);
-    }
+} else {
+    header('location:' . SITE_URL);
+}
 
 ?>
 
@@ -31,20 +29,20 @@
         <form action="" method="POST">
             <h2>Užpildykite formą norėdami užsisakyti</h2>
             <fieldset class="flex border_radius_10">
-                    <legend>Pasirinktas gėrimas</legend>
-                    <div class="padding_3">
-                        <img src="<?php echo SITE_URL; ?>images/drinks/<?php echo $image_name ?>" alt="">
-                    </div>
-                    <div class="drinks_menu_desc_order text_center">
-                        <h3><?php echo $title; ?></h3>
-                        <input type="hidden" name="drinks" value="<?php echo $title; ?>">
+                <legend>Pasirinktas gėrimas</legend>
+                <div class="padding_3">
+                    <img src="<?php echo SITE_URL; ?>images/drinks/<?php echo $image_name ?>" alt="">
+                </div>
+                <div class="drinks_menu_desc_order text_center">
+                    <h3><?php echo $title; ?></h3>
+                    <input type="hidden" name="drinks" value="<?php echo $title; ?>">
 
-                        <p class="drinks_price"><?php echo $price?>€</p>
-                        <input type="hidden" name="price" value="<?php echo $price; ?>">
+                    <p class="drinks_price"><?php echo $price ?>€</p>
+                    <input type="hidden" name="price" value="<?php echo $price; ?>">
 
-                        <div>Kiekis</div>
-                        <input class="order_inputs" type="number" name="qty" value="1" required>
-                    </div>
+                    <div>Kiekis</div>
+                    <input class="order_inputs" type="number" name="qty" value="1" required>
+                </div>
             </fieldset>
 
             <fieldset class="border_radius_10 allign_items_center">
@@ -59,7 +57,8 @@
                 <input class="order_inputs" type="email" name="email" placeholder="labas@paštas.com" required>
 
                 <div>Adresas</div>
-                <textarea class="order_inputs" name="address" rows="10" placeholder="Gatvė, Miestas" required></textarea>
+                <textarea class="order_inputs" name="address" rows="10" placeholder="Gatvė, Miestas"
+                          required></textarea>
 
                 <input type="submit" name="submit" value="Patvirtinti užsakymą" class="order_inputs btn_primary">
             </fieldset>
@@ -67,20 +66,20 @@
 
         <?php
 
-            if (isset($_POST['submit'])) {
-                $drinks = $_POST['drinks'];
-                $price = $_POST['price'];
-                $qty = $_POST['qty'];
+        if (isset($_POST['submit'])) {
+            $drinks = $_POST['drinks'];
+            $price = $_POST['price'];
+            $qty = $_POST['qty'];
 
-                $total = $price * $qty;
-                $order_date = date("Y-m-d h:i:sa");
-                $status = "Užsakytas";
-                $customer_name = $_POST['full_name'];
-                $customer_contact = $_POST['customer_contact'];
-                $customer_email = $_POST['customer_email'];
-                $customer_address = $_POST['customer_address'];
+            $total = $price * $qty;
+            $order_date = date("Y-m-d h:i:sa");
+            $status = "Užsakytas";
+            $customer_name = $_POST['full_name'];
+            $customer_contact = $_POST['customer_contact'];
+            $customer_email = $_POST['customer_email'];
+            $customer_address = $_POST['customer_address'];
 
-                $sql2 = "INSERT INTO tbl_order SET
+            $sql2 = "INSERT INTO tbl_order SET
                         drinks = '$drinks',
                         price = $price,
                         qty = $qty,
@@ -93,21 +92,20 @@
                         customer_address = '$customer_address'
                         ";
 
-                $res2 = mysqli_query($conn, $sql2);
+            $res2 = mysqli_query($conn, $sql2);
 
-                if ($res2 == TRUE) {
-                    $_SESSION['order'] = "<div class='success text_center'>Gėrimas užsakytas sėkmingai!</div>";
-                    header('location:'.SITE_URL);
-                }
-                else {
-                    $_SESSION['order'] = "<div class='error'>Ivyko klaida</div>";
-                    header('location:'.SITE_URL);
-                }
+            if ($res2 == TRUE) {
+                $_SESSION['order'] = "<div class='success text_center'>Gėrimas užsakytas sėkmingai!</div>";
+                header('location:' . SITE_URL);
+            } else {
+                $_SESSION['order'] = "<div class='error'>Ivyko klaida</div>";
+                header('location:' . SITE_URL);
             }
+        }
 
         ?>
 
     </div>
 </section>
 
-<?php include('partials_front/footer.php')?>
+<?php include('partials_front/footer.php') ?>

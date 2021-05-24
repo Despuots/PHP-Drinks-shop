@@ -17,7 +17,7 @@
             $res2 = mysqli_query($conn, $sql2);
             $count2 = mysqli_num_rows($res2);
 
-            if ($count2 > 0 ) {
+            if ($count2 > 0) {
                 while ($row2 = mysqli_fetch_assoc($res2)) {
                     $id = $row2['id'];
                     $title = $row2['title'];
@@ -29,22 +29,23 @@
 
                     <div class="drinks_menu_box flex ">
                         <div class="drinks_menu_img">
-                            <img src="<?php echo SITE_URL; ?>images/drinks/<?php echo $image_name; ?>" alt="" class="img_drinks border_radius_10">
+                            <img src="<?php echo SITE_URL; ?>images/drinks/<?php echo $image_name; ?>" alt=""
+                                 class="img_drinks border_radius_10">
                         </div>
                         <div class="drinks_menu_desc">
                             <h4><?php echo $title; ?></h4>
                             <p class="drinks_price"><?php echo $price; ?>€</p>
                             <p class="drinks_detail"><?php echo $description; ?></p>
                             <br>
-                            <a class="btn btn_primary color_white" href="<?php echo SITE_URL; ?>order.php?drinks_id=<?php echo $id; ?>">Užsisakyti</a>
+                            <a class="btn btn_primary color_white"
+                               href="<?php echo SITE_URL; ?>order.php?drinks_id=<?php echo $id; ?>">Užsisakyti</a>
                         </div>
                     </div>
 
 
                     <?php
                 }
-            }
-            else {
+            } else {
 
             }
             ?>

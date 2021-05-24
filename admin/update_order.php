@@ -11,10 +11,10 @@
         $sql = "SELECT * FROM tbl_order WHERE id =$id";
         $res = mysqli_query($conn, $sql);
 
-        if($res == TRUE) {
+        if ($res == TRUE) {
             $count = mysqli_num_rows($res);
 
-            if($count == 1) {
+            if ($count == 1) {
                 $row = mysqli_fetch_assoc($res);
 
                 $drinks = $row['drinks'];
@@ -27,9 +27,8 @@
                 $customer_contact = $row['customer_contact'];
                 $customer_email = $row['customer_email'];
                 $customer_address = $row['customer_address'];
-            }
-            else {
-                header('location:'.SITE_URL.'admin/manage_order.php');
+            } else {
+                header('location:' . SITE_URL . 'admin/manage_order.php');
             }
         }
         ?>
@@ -37,7 +36,7 @@
         <form action="" method="POST">
             <table class="tbl-30">
                 <tr>
-                    <td>Gėrimo pavadinimas: </td>
+                    <td>Gėrimo pavadinimas:</td>
                     <td><?php echo $drinks ?></td>
                 </tr>
                 <tr>
@@ -45,44 +44,57 @@
                     <td><?php echo $price ?>€</td>
                 </tr>
                 <tr>
-                    <td>Kiekis: </td>
+                    <td>Kiekis:</td>
                     <td>
                         <input type="number" name="qty" value="<?php echo $qty; ?>">
                     </td>
                 </tr>
                 <tr>
-                    <td>Statusas: </td>
+                    <td>Statusas:</td>
                     <td>
                         <select name="status" id="">
-                            <option <?php if ($status == "Užsakytas") {echo "selected";} ?> value="Užsakytas">Užsakytas</option>
-                            <option <?php if ($status == "Pristatomas") {echo "selected";} ?> value="Pristatomas">Pristatomas</option>
-                            <option <?php if ($status == "Pristatytas") {echo "selected";} ?> value="Pristatytas">Pristatytas</option>
-                            <option <?php if ($status == "Atšauktas") {echo "selected";} ?> value="Atšauktas">Atšauktas</option>
+                            <option <?php if ($status == "Užsakytas") {
+                                echo "selected";
+                            } ?> value="Užsakytas">Užsakytas
+                            </option>
+                            <option <?php if ($status == "Pristatomas") {
+                                echo "selected";
+                            } ?> value="Pristatomas">Pristatomas
+                            </option>
+                            <option <?php if ($status == "Pristatytas") {
+                                echo "selected";
+                            } ?> value="Pristatytas">Pristatytas
+                            </option>
+                            <option <?php if ($status == "Atšauktas") {
+                                echo "selected";
+                            } ?> value="Atšauktas">Atšauktas
+                            </option>
                         </select>
                     </td>
                 </tr>
                 <tr>
-                    <td>Pirkėjo vardas: </td>
+                    <td>Pirkėjo vardas:</td>
                     <td>
                         <input type="text" name="customer_name" value="<?php echo $customer_name ?>">
                     </td>
                 </tr>
                 <tr>
-                    <td>Pirkėjo telefono numeris: </td>
+                    <td>Pirkėjo telefono numeris:</td>
                     <td>
                         <input type="text" name="customer_contact" value="<?php echo $customer_contact ?>">
                     </td>
                 </tr>
                 <tr>
-                    <td>Pirkėjo el. paštas: </td>
+                    <td>Pirkėjo el. paštas:</td>
                     <td>
                         <input type="text" name="customer_email" value="<?php echo $customer_email ?>">
                     </td>
                 </tr>
                 <tr>
-                    <td>Pirkėjo adresas: </td>
+                    <td>Pirkėjo adresas:</td>
                     <td>
-                        <textarea name="customer_address" id="" cols="30" rows="10"><?php echo $customer_address ?></textarea>
+                        <textarea name="customer_address" id="" cols="30"
+                                  rows="10"><?php echo $customer_address ?></textarea>
                     </td>
                 </tr>
                 <tr>
@@ -101,7 +113,7 @@
 
 <?php
 
-if(isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
     $id = $_POST['id'];
     $price = $_POST['price'];
     $qty = $_POST['qty'];
@@ -128,11 +140,10 @@ if(isset($_POST['submit'])) {
 
     if ($res2 == TRUE) {
         $_SESSION['update'] = "<div class='success text-center'>Užsakymas redaguotas</div>";
-        header("location:".SITE_URL.'admin/manage_order.php');
-    }
-    else {
+        header("location:" . SITE_URL . 'admin/manage_order.php');
+    } else {
         $_SESSION['update'] = "<div class='error text-center'>Ivyko klaida</div>";
-        header("location:".SITE_URL.'admin/manage_order.php');
+        header("location:" . SITE_URL . 'admin/manage_order.php');
     }
 
 }

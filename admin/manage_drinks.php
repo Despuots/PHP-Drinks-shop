@@ -47,22 +47,22 @@ if (isset($_SESSION['failed_remove'])) {
                 <th>Galimi veiksmai</th>
             </tr>
             <?php
-                $sql = "SELECT * FROM tbl_drinks";
-                $res = mysqli_query($conn, $sql);
-                $count = mysqli_num_rows($res);
-                $sn = 1;
+            $sql = "SELECT * FROM tbl_drinks";
+            $res = mysqli_query($conn, $sql);
+            $count = mysqli_num_rows($res);
+            $sn = 1;
 
-                if ($count > 0) {
-                    while ($row = mysqli_fetch_assoc($res)) {
-                        $id = $row['id'];
-                        $title = $row['title'];
-                        $price = $row['price'];
-                        $image_name = $row['image_name'];
-                        $featured = $row['featured'];
-                        $active = $row['active'];
-                        ?>
-                        <tr>
-                        <td><?php echo $sn ++; ?></td>
+            if ($count > 0) {
+                while ($row = mysqli_fetch_assoc($res)) {
+                    $id = $row['id'];
+                    $title = $row['title'];
+                    $price = $row['price'];
+                    $image_name = $row['image_name'];
+                    $featured = $row['featured'];
+                    $active = $row['active'];
+                    ?>
+                    <tr>
+                        <td><?php echo $sn++; ?></td>
                         <td><?php echo $title; ?></td>
                         <td><?php echo $price; ?>€</td>
                         <td>
@@ -70,10 +70,10 @@ if (isset($_SESSION['failed_remove'])) {
 
                             if ($image_name != "") {
                                 ?>
-                                <img src="<?php echo SITE_URL; ?>images/drinks/<?php echo $image_name; ?>" alt="" width="100px">
+                                <img src="<?php echo SITE_URL; ?>images/drinks/<?php echo $image_name; ?>" alt=""
+                                     width="100px">
                                 <?php
-                            }
-                            else {
+                            } else {
                                 echo "<div class='error'>Nuotrauka nepridėta</div>";
                             }
 
@@ -82,17 +82,18 @@ if (isset($_SESSION['failed_remove'])) {
                         <td><?php echo $featured; ?></td>
                         <td><?php echo $active; ?></td>
                         <td>
-                            <a href="<?php echo SITE_URL; ?>admin/update_drinks.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-secondary">Redaguoti duomenis</a>
-                            <a href="<?php echo SITE_URL; ?>admin/delete_drinks.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Ištrinti</a>
+                            <a href="<?php echo SITE_URL; ?>admin/update_drinks.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>"
+                               class="btn-secondary">Redaguoti duomenis</a>
+                            <a href="<?php echo SITE_URL; ?>admin/delete_drinks.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>"
+                               class="btn-danger">Ištrinti</a>
                         </td>
-                        </tr>
+                    </tr>
 
-                        <?php
-                    }
+                    <?php
                 }
-                else {
-                    echo "<tr> <td colspan='7' class='error'>Gėrimų nėra</td> </tr>";
-                }
+            } else {
+                echo "<tr> <td colspan='7' class='error'>Gėrimų nėra</td> </tr>";
+            }
 
             ?>
 

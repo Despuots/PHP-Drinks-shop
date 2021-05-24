@@ -1,9 +1,9 @@
 <?php
 
-    include('../config/constants.php');
+include('../config/constants.php');
 
-    session_destroy();
+session_destroy();
 
-    header('location:'.SITE_URL.'admin/login.php');
+header('location:' . SITE_URL . 'admin/login.php');
 
 ?>

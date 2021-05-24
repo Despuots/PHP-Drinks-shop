@@ -35,7 +35,7 @@ if (isset($_SESSION['failed_remove'])) {
 
 
         <br><br><br>
-        <a href="<?php echo SITE_URL;?>admin/add_category.php" class="btn-primary">Sukurti kategoriją</a>
+        <a href="<?php echo SITE_URL; ?>admin/add_category.php" class="btn-primary">Sukurti kategoriją</a>
         <br><br>
         <table class="tbl-full">
             <tr>
@@ -49,62 +49,65 @@ if (isset($_SESSION['failed_remove'])) {
 
             <?php
 
-                $sql = "SELECT * FROM tbl_category";
+            $sql = "SELECT * FROM tbl_category";
 
-                $res = mysqli_query($conn, $sql);
+            $res = mysqli_query($conn, $sql);
 
-                $count = mysqli_num_rows($res);
+            $count = mysqli_num_rows($res);
 
-                $sn = 1;
+            $sn = 1;
 
-                if ($count > 0) {
-                    while ($row = mysqli_fetch_assoc($res)) {
-                        $id = $row['id'];
-                        $title = $row['title'];
-                        $image_name = $row['image_name'];
-                        $featured = $row['featured'];
-                        $active = $row['active'];
+            if ($count > 0) {
+                while ($row = mysqli_fetch_assoc($res)) {
+                    $id = $row['id'];
+                    $title = $row['title'];
+                    $image_name = $row['image_name'];
+                    $featured = $row['featured'];
+                    $active = $row['active'];
 
-            ?>
-                        <tr>
-                            <td><?php echo $sn ++; ?></td>
-                            <td><?php echo $title; ?></td>
+                    ?>
+                    <tr>
+                        <td><?php echo $sn++; ?></td>
+                        <td><?php echo $title; ?></td>
 
-                            <td>
-                                <?php
+                        <td>
+                            <?php
 
-                                    if ($image_name != "") {
-                                        ?>
-                                        <img src="<?php echo SITE_URL; ?>images/category/<?php echo $image_name; ?>" alt="" width="100px">
-                                        <?php
-                                    }
-                                    else {
-                                        echo "<div class='error'>Nuotrauka nepridėta</div>";
-                                    }
-
+                            if ($image_name != "") {
                                 ?>
-                            </td>
+                                <img src="<?php echo SITE_URL; ?>images/category/<?php echo $image_name; ?>" alt=""
+                                     width="100px">
+                                <?php
+                            } else {
+                                echo "<div class='error'>Nuotrauka nepridėta</div>";
+                            }
 
-                            <td><?php echo $featured; ?></td>
-                            <td><?php echo $active; ?></td>
-                            <td>
-                                <a href="<?php echo SITE_URL; ?>admin/update_category.php?id=<?php echo $id; ?>" class="btn-secondary">Redaguoti kategoriją</a>
-                                <a href="<?php echo SITE_URL; ?>admin/delete_category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name ?>" class="btn-danger">Ištrinti</a>
-                            </td>
-                        </tr>
-            <?php
+                            ?>
+                        </td>
 
-                    }
+                        <td><?php echo $featured; ?></td>
+                        <td><?php echo $active; ?></td>
+                        <td>
+                            <a href="<?php echo SITE_URL; ?>admin/update_category.php?id=<?php echo $id; ?>"
+                               class="btn-secondary">Redaguoti kategoriją</a>
+                            <a href="<?php echo SITE_URL; ?>admin/delete_category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name ?>"
+                               class="btn-danger">Ištrinti</a>
+                        </td>
+                    </tr>
+                    <?php
+
                 }
-                else {
-            ?>
+            } else {
+                ?>
 
-            <tr>
-                <td><div class="error">Nėra kategorijų</div></td>
-            </tr>
+                <tr>
+                    <td>
+                        <div class="error">Nėra kategorijų</div>
+                    </td>
+                </tr>
 
-            <?php
-                }
+                <?php
+            }
 
             ?>
 
