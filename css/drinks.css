@@ -1,0 +1,268 @@
+* {
+    margin: 0 0;
+    padding: 0 0;
+    font-family: Arial, Helvetica, sans-serif;
+    list-style: none;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1%;
+}
+
+.text_right {
+    text-align: right;
+}
+
+.text_center {
+    text-align: center;
+}
+.color_white {
+    color: white;
+}
+
+a {
+    text-decoration: none;
+}
+
+.flex {
+    display: flex;
+    width: 100%;
+}
+
+.flex_menu {
+    display: flex;
+    width: 100%;
+}
+
+.space_between {
+    justify-content: space-between;
+}
+
+.flex_wrap {
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 1%;
+    border: none;
+    font-size: 1rem;
+    background-color: #a4b0be;
+}
+
+.btn_primary {
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn_primary:hover {
+    background-color: #747d8c;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 2%;
+}
+
+h3 {
+    background: none;
+}
+
+.border_radius_10 {
+    border-radius: 10px;
+}
+
+.border_radius_20 {
+    border-radius: 20px;
+}
+
+.padding_3 {
+    padding: 3%;
+}
+
+.margin_top_5 {
+    margin-top: 5%;
+}
+
+.margin_bottom_5 {
+    margin-bottom: 5%;
+}
+
+.success {
+    color: white;
+    background-color: #2ed573;
+    width: 100%;
+    padding: 1%;
+    font-weight: bold;
+}
+
+.error {
+    color: white;
+    background-color: #ff4757;
+    width: 100%;
+    padding: 1%;
+    font-weight: bold;
+}
+
+
+
+/*---------------------*/
+/*NAV*/
+/*---------------------*/
+
+.logo {
+    width: 10%;
+}
+
+.img_responsive {
+    width: 80%;
+    height: 200px;
+}
+
+.img_drinks {
+    width: 100%;
+}
+
+
+.menu ul {
+    margin-top: 5%;
+    display: flex;
+}
+
+.menu ul li {
+    margin-right: 10%;
+    font-weight: bold;
+}
+
+.menu ul li a:hover {
+    color: #4834d4;
+}
+
+.menu {
+    width: 30%;
+}
+/*---------------------*/
+/*SEARCH*/
+/*---------------------*/
+
+.drinks_search {
+    background-image: url("https://i2.wp.com/www.eatthis.com/wp-content/uploads/2020/06/Unhealthiest-Drinks.jpg?fit=1200%2C879&ssl=1");
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 7% 0;
+}
+
+.drinks_search input[type='search'] {
+    width: 50%;
+    padding: 1%;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+}
+
+/*---------------------*/
+/*Categories*/
+/*---------------------*/
+
+.categories {
+    padding: 4% 0;
+}
+
+.box-3 {
+    width: 28%;
+    margin: 2%;
+    border-radius: 20px;
+}
+
+/*---------------------*/
+/*drinks menu*/
+/*---------------------*/
+
+.drinks_menu_box {
+    width: 43%;
+    margin: 1%;
+    padding: 2%;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.drinks_menu {
+    background-color: #ececec;
+}
+
+.drinks_menu_img {
+    width: 20%;
+    height: 100%;
+}
+
+.drinks_menu_desc {
+    width: 70%;
+    margin-left: 8%;
+}
+
+.drinks_price {
+    font-size: 1.2rem;
+    margin: 2% 0;
+}
+
+.drinks_detail {
+    font-size: 1rem;
+    color: #747d8c;
+}
+
+/*---------------------*/
+
+/*---------------------*/
+
+.social ul li {
+    display: inline;
+    padding: 1%;
+}
+
+/*---------------------*/
+/*order*/
+/*---------------------*/
+
+.container_order {
+    width: 40%;
+    margin: 0 auto;
+    padding: 1%;
+}
+
+fieldset {
+    background-color: #ececec;
+    border: 1px solid grey;
+}
+
+legend {
+    text-align: start;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.drinks_menu_desc_order {
+    width: 50%;
+    margin-top: 5%;
+    padding: 1%;
+}
+
+.order_inputs {
+    margin: 2% auto;
+    width: 80%;
+    padding: 2%;
+    border-radius: 5px;
+    border: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .flex_menu {
+        display: inline;
+    }
+    .logo {
+        margin: 1% auto;
+    }
+    .menu ul {
+        text-align: center;
+    }
+}
