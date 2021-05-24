@@ -33,7 +33,7 @@ include($_SERVER['DOCUMENT_ROOT'] . "/drinks_shop/config/constants.php");
                         <a href="<?php echo SITE_URL; ?>drinks.php">Gėrimai</a>
                     </li>
                     <li>
-                        <a href="<?php echo SITE_URL; ?>">Kontaktai</a>
+                        <a href="<?php echo SITE_URL; ?>admin/index.php">Admin</a>
                     </li>
                 </ul>
             </div>

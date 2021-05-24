@@ -75,9 +75,9 @@ if (isset($_GET['drinks_id'])) {
             $order_date = date("Y-m-d h:i:sa");
             $status = "Užsakytas";
             $customer_name = $_POST['full_name'];
-            $customer_contact = $_POST['customer_contact'];
-            $customer_email = $_POST['customer_email'];
-            $customer_address = $_POST['customer_address'];
+            $customer_contact = $_POST['contact'];
+            $customer_email = $_POST['email'];
+            $customer_address = $_POST['address'];
 
             $sql2 = "INSERT INTO tbl_order SET
                         drinks = '$drinks',
